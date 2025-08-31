@@ -59,7 +59,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helve
 }
 
 .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid #ddd; margin-bottom: 20px; }
-.header-title { font-size: 24px; font-weight: bold; }
+.header-title { font-size: 24px; font-weight: bold; padding-top: 2%;}
 .header-actions { display: flex; gap: 10px; }
 .content-grid { display: grid; gap: 20px; }
 

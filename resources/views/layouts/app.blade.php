@@ -20,9 +20,8 @@
                 <img src="{{ asset('images/logo_neurocogniciones.png') }}" alt="Logo de Neurocogniciones">
             </div>
             <nav class="sidebar-nav">
-                <a href="{{ route('dashboard') }}" class="active">Dashboard</a>
-                <a href="{{ route('chat') }}">Chat</a>
-                <a href="#">Muro</a>
+                <a href="{{ route('dashboard') }}" class="{{ Route::is('dashboard') ? 'active' : '' }}">Inicio</a>
+                <a href="{{ route('chat') }}" class="{{ Route::is('chat') ? 'active' : '' }}">Chat</a>
                 {{-- Sección solo visible para Admin --}}
                 @if($userRole === 'admin')
                 <a href="#">Gestión de Usuarios</a>
@@ -34,11 +33,11 @@
                 <a href="#">Configuraciones</a>
                 @endif
                 <a href="#">Mi Perfil</a>
+                <form action="{{ route('logout') }}" method="POST" style="margin-top: auto;">
+                    @csrf
+                    <button type="submit">Cerrar Sesión</button>
+                </form>
             </nav>
-            <form action="{{ route('logout') }}" method="POST" style="margin-top: auto;">
-                @csrf
-                <button type="submit">Cerrar Sesión</button>
-            </form>
         </div>
         
         {{-- Contenido Principal --}}
