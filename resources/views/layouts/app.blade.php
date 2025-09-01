@@ -33,6 +33,8 @@
                 <a href="#">Configuraciones</a>
                 @endif
                 <a href="#">Mi Perfil</a>
+                <a href="#">Preferencias</a>
+                <a href="#">Temas</a>
                 <form action="{{ route('logout') }}" method="POST" style="margin-top: auto;">
                     @csrf
                     <button type="submit">Cerrar Sesión</button>
