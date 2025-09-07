@@ -26,6 +26,11 @@
                 <div class="card-header">Control de Usuarios</div>
                 <div class="card-content">
                     <p>Herramientas para agregar, editar y eliminar usuarios. Asignación de roles.</p>
+                    <div class="mt-4">
+                        <a href="{{ route('admin.users.index') }}" class="btn btn-primary">
+                            📋 Gestionar Usuarios
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
