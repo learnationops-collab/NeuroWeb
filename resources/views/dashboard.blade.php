@@ -33,6 +33,17 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">Contactos del Equipo</div>
+                <div class="card-content">
+                    <p>Coordina y supervisa con el equipo NeuroWeb.</p>
+                    <div class="mt-4">
+                        <a href="{{ route('contacts.index') }}" class="btn btn-primary">
+                            👥 Ver Contactos
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     @elseif($userRole === 'neuro_team')
@@ -49,6 +60,17 @@
                     <p>Muro para ver y crear publicaciones para los estudiantes.</p>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">Mis Contactos</div>
+                <div class="card-content">
+                    <p>Gestiona contactos con administradores y estudiantes.</p>
+                    <div class="mt-4">
+                        <a href="{{ route('contacts.index') }}" class="btn btn-primary">
+                            📋 Ver Contactos
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     @elseif($userRole === 'estudiante')
@@ -63,6 +85,17 @@
                 <div class="card-header">Mi Muro</div>
                 <div class="card-content">
                     <p>Sección para ver publicaciones, anuncios y material de estudio.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Mis Contactos</div>
+                <div class="card-content">
+                    <p>Contacta con el equipo NeuroWeb para obtener ayuda y orientación.</p>
+                    <div class="mt-4">
+                        <a href="{{ route('contacts.index') }}" class="btn btn-primary">
+                            📞 Ver Contactos
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card">
