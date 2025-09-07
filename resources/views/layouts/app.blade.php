@@ -10,6 +10,7 @@
 
     {{-- Si usas otros archivos CSS, enlaza también aquí --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
 </head>
 <body class="{{ 'role-' . $userRole }}">
@@ -24,7 +25,7 @@
                 <a href="{{ route('chat') }}" class="{{ Route::is('chat') ? 'active' : '' }}">Chat</a>
                 {{-- Sección solo visible para Admin --}}
                 @if($userRole === 'admin')
-                <a href="#">Gestión de Usuarios</a>
+                <a href="{{ route('admin.users.index') }}" class="{{ Route::is('admin.users.*') ? 'active' : '' }}">Gestión de Usuarios</a>
                 <a href="#">Estadísticas</a>
                 @endif
                 

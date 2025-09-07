@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\UserManagementController;
 
 // Ruta para mostrar la vista de autenticación (login/registro)
 Route::get('/', function () {
@@ -24,4 +25,9 @@ Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')-
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+});
+
+// Rutas protegidas solo para administradores
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', UserManagementController::class)->except(['show']);
 });
