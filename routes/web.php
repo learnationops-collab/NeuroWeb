@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\ContactController;
 
 // Ruta para mostrar la vista de autenticación (login/registro)
 Route::get('/', function () {
@@ -25,6 +26,13 @@ Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')-
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
+    
+    // API endpoints para chat
+    Route::post('/chat/send', [ChatController::class, 'sendMessage'])->name('chat.send');
+    Route::get('/chat/messages', [ChatController::class, 'getMessages'])->name('chat.messages');
+    Route::post('/chat/start', [ChatController::class, 'startConversation'])->name('chat.start');
 });
 
 // Rutas protegidas solo para administradores
