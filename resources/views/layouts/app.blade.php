@@ -23,6 +23,7 @@
             <nav class="sidebar-nav">
                 <a href="{{ route('dashboard') }}" class="{{ Route::is('dashboard') ? 'active' : '' }}">Inicio</a>
                 <a href="{{ route('chat') }}" class="{{ Route::is('chat') ? 'active' : '' }}">Chat</a>
+                <a href="{{ route('contacts.index') }}" class="{{ Route::is('contacts.*') ? 'active' : '' }}">Contactos</a>
                 {{-- Sección solo visible para Admin --}}
                 @if($userRole === 'admin')
                 <a href="{{ route('admin.users.index') }}" class="{{ Route::is('admin.users.*') ? 'active' : '' }}">Gestión de Usuarios</a>
