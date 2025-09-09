@@ -2,55 +2,54 @@
 
 ## 📋 Descripción General
 
-El sistema de contactos implementa una estructura de comunicación jerárquica basada en roles, donde cada tipo de usuario tiene acceso específico a diferentes contactos según su posición en la organización.
+El sistema de contactos de NeuroWeb organiza la comunicación interna según el rol de cada usuario, permitiendo que cada tipo de usuario acceda únicamente a los contactos que le corresponden dentro de la estructura de la organización. Esto garantiza seguridad, claridad y eficiencia en la gestión de la información y el soporte.
 
 ## 🎯 Reglas de Contactos por Rol
 
 ### 👨‍🎓 Estudiantes
-- **Pueden contactar con**: Equipo NeuroWeb (neuro_team)
-- **Propósito**: Obtener ayuda, orientación y soporte académico
+- **Contactos disponibles**: Solo pueden comunicarse con el Equipo NeuroWeb (neuro_team).
+- **Propósito**: Solicitar ayuda, orientación académica y soporte técnico.
 - **Secciones visibles**: 
-  - 🧠 **Equipo NeuroWeb**: Especialistas y tutores
+  - 🧠 **Equipo NeuroWeb**: Especialistas y tutores que brindan apoyo directo.
 
 ### 🧠 Equipo NeuroWeb (neuro_team)
-- **Pueden contactar con**: Administradores y Estudiantes
-- **Propósito**: Coordinar con supervisores y brindar apoyo a estudiantes
+- **Contactos disponibles**: Pueden contactar tanto a Administradores como a Estudiantes.
+- **Propósito**: Coordinar tareas con los supervisores y ofrecer asistencia a los estudiantes.
 - **Secciones visibles**:
-  - 👑 **Administradores**: Supervisores del sistema
-  - 🎓 **Estudiantes**: Usuarios a los que brindan apoyo
+  - 👑 **Administradores**: Supervisores responsables del sistema.
+  - 🎓 **Estudiantes**: Usuarios que reciben apoyo y seguimiento.
 
 ### 👑 Administradores
-- **Pueden contactar con**: Equipo NeuroWeb (neuro_team)
-- **Propósito**: Supervisar y coordinar actividades del equipo
+- **Contactos disponibles**: Tienen acceso al Equipo NeuroWeb (neuro_team).
+- **Propósito**: Supervisar, coordinar y gestionar las actividades del equipo.
 - **Secciones visibles**:
-  - 🧠 **Equipo NeuroWeb**: Personal especializado
+  - 🧠 **Equipo NeuroWeb**: Personal especializado encargado de la operación diaria.
 
 ## 🛠️ Funcionalidades Implementadas
 
 ### Lista de Contactos
 - **Ruta**: `/contacts`
-- **Vista organizada por secciones** según el rol del usuario
+- **Vista personalizada**: La lista se organiza en secciones según el rol del usuario.
 - **Información mostrada**:
-  - Avatar con inicial del nombre
+  - Avatar con la inicial del nombre
   - Nombre completo
-  - Email
-  - Roles con colores distintivos
-  - Botones de acción (Ver Perfil, Chatear)
+  - Correo electrónico
+  - Rol destacado con color específico
+  - Botones de acción: Ver Perfil y Chatear
 
 ### Perfil de Contacto
 - **Ruta**: `/contacts/{id}`
 - **Información detallada**:
-  - Avatar y header con gradiente
-  - Información de contacto completa
+  - Avatar y encabezado con gradiente de color
+  - Datos completos de contacto
   - Roles y descripción de responsabilidades
-  - Acciones disponibles según permisos
-  - Estado de actividad
-  - Última conexión
+  - Acciones disponibles según permisos del usuario
+  - Estado de actividad y última conexión
 
 ### Seguridad y Permisos
-- ✅ **Control de acceso**: Solo contactos permitidos por rol
-- ✅ **Verificación de permisos**: No se puede acceder a perfiles no autorizados
-- ✅ **Error 404**: Para contactos fuera del alcance del usuario
+- ✅ **Control de acceso**: Solo se muestran los contactos permitidos según el rol.
+- ✅ **Verificación de permisos**: No es posible acceder a perfiles no autorizados.
+- ✅ **Error 404**: Se muestra si se intenta acceder a un contacto fuera del alcance permitido.
 
 ## 🎨 Interfaz de Usuario
 
@@ -66,26 +65,26 @@ El sistema de contactos implementa una estructura de comunicación jerárquica b
   - 🎓 Estudiantes
 
 ### Características Responsivas
-- **Grid adaptable**: 1 columna en móvil, 2 en tablet, 3 en desktop
-- **Cards con hover effects**: Sombra y transiciones suaves
-- **Avatars con gradientes**: Visuales atractivos y únicos
+- **Grid adaptable**: La vista se ajusta automáticamente; una columna en móvil, dos en tablet y tres en escritorio.
+- **Tarjetas con efectos hover**: Sombra y transiciones suaves para mejorar la experiencia visual.
+- **Avatares con gradientes**: Imágenes atractivas y personalizadas para cada usuario.
 
 ## 🔄 Navegación Integrada
 
 ### Sidebar
-- Enlace "Contactos" disponible para todos los usuarios autenticados
-- Estado activo destacado cuando se está en la sección
+- El enlace "Contactos" está disponible para todos los usuarios autenticados.
+- El estado activo se resalta cuando el usuario está en la sección de contactos.
 
 ### Dashboard
-- **Estudiantes**: Sección "Mis Contactos" 
-- **Neuro Team**: Sección "Mis Contactos" con descripción de gestión
-- **Admin**: Sección "Contactos del Equipo"
+- **Estudiantes**: Acceso a la sección "Mis Contactos".
+- **Neuro Team**: Sección "Mis Contactos" con información sobre gestión y apoyo.
+- **Admin**: Sección "Contactos del Equipo" para supervisión y coordinación.
 
 ### Botones de Acción
-- **Ver Perfil**: Navega al detalle completo del contacto
-- **💬 Chatear**: Redirige al chat con parámetro de contacto
-- **Ver Historial**: Solo para admin y neuro_team
-- **Marcar como Favorito**: Funcionalidad placeholder
+- **Ver Perfil**: Permite ver la información completa del contacto.
+- **💬 Chatear**: Redirige al chat con el contacto seleccionado.
+- **Ver Historial**: Disponible solo para administradores y neuro_team.
+- **Marcar como Favorito**: Funcionalidad en desarrollo.
 
 ## 🔧 Implementación Técnica
 
@@ -93,14 +92,14 @@ El sistema de contactos implementa una estructura de comunicación jerárquica b
 ```php
 public function getContactsByRole()
 {
-    // Lógica para filtrar contactos según el rol del usuario
-    // Retorna array asociativo con secciones organizadas
+    // Filtra y organiza los contactos según el rol del usuario actual.
+    // Devuelve un array con las secciones correspondientes.
 }
 ```
 
 ### Controlador (app/Http/Controllers/ContactController.php)
-- `index()`: Lista contactos según rol
-- `show($id)`: Muestra detalle con verificación de permisos
+- `index()`: Muestra la lista de contactos filtrada por rol.
+- `show($id)`: Presenta el detalle del contacto, verificando permisos de acceso.
 
 ### Rutas (routes/web.php)
 ```php
@@ -113,49 +112,49 @@ Route::middleware('auth')->group(function () {
 ## 📊 Estado del Sistema
 
 ### ✅ Completado
-- Lógica de filtrado por roles
-- Controladores con seguridad
-- Vistas responsive y atractivas
-- Navegación integrada
-- CSS personalizado
-- Control de acceso
+- Filtrado de contactos por rol
+- Controladores con seguridad y validación
+- Vistas responsivas y atractivas
+- Navegación integrada en la interfaz
+- Estilos CSS personalizados
+- Control de acceso y permisos
 
 ### 🔄 Mejoras Futuras Sugeridas
-- Búsqueda de contactos
-- Filtros adicionales
+- Búsqueda avanzada de contactos
+- Filtros adicionales por criterios
 - Chat en tiempo real integrado
-- Notificaciones de conexión
-- Historial de interacciones
+- Notificaciones de conexión y actividad
+- Historial de interacciones entre usuarios
 - Sistema de favoritos funcional
 - Estados de disponibilidad (online/offline)
 
 ## 🧪 Testing
 
 ### Casos de Prueba Recomendados
-1. **Acceso por rol**: Verificar que cada rol ve solo sus contactos permitidos
-2. **Protección de rutas**: Intentar acceder a perfiles no autorizados
-3. **Navegación**: Confirmar enlaces activos y redirecciones
-4. **Responsive**: Probar en diferentes tamaños de pantalla
-5. **Performance**: Verificar carga con muchos contactos
+1. **Acceso por rol**: Verificar que cada usuario solo ve los contactos permitidos.
+2. **Protección de rutas**: Intentar acceder a perfiles no autorizados y comprobar la restricción.
+3. **Navegación**: Confirmar que los enlaces y redirecciones funcionan correctamente.
+4. **Responsive**: Probar la visualización en diferentes dispositivos y tamaños de pantalla.
+5. **Performance**: Evaluar el rendimiento con una gran cantidad de contactos.
 
 ## 📱 Uso del Sistema
 
 ### Para Estudiantes
-1. Accede a "Contactos" desde el sidebar o dashboard
-2. Ve la lista del "Equipo NeuroWeb" disponible
-3. Haz clic en "Ver Perfil" para información detallada
-4. Usa "💬 Chatear" para iniciar conversación
+1. Accede a "Contactos" desde el menú lateral o el dashboard.
+2. Visualiza la lista del "Equipo NeuroWeb" disponible para soporte.
+3. Haz clic en "Ver Perfil" para obtener información detallada.
+4. Usa "💬 Chatear" para iniciar una conversación directa.
 
 ### Para Equipo NeuroWeb  
-1. Accede a "Contactos" para ver dos secciones
-2. "Administradores" para coordinación superior
-3. "Estudiantes" para brindar apoyo
-4. Acciones adicionales como "Ver Historial"
+1. Ingresa a "Contactos" para ver las secciones de Administradores y Estudiantes.
+2. Utiliza la sección de "Administradores" para coordinar tareas y recibir instrucciones.
+3. Accede a la sección de "Estudiantes" para brindar apoyo y seguimiento.
+4. Realiza acciones adicionales como consultar el historial de interacciones.
 
 ### Para Administradores
-1. Ve "Contactos del Equipo" desde el dashboard
-2. Lista completa del equipo NeuroWeb
-3. Herramientas de supervisión y coordinación
-4. Acceso a funciones administrativas adicionales
+1. Accede a "Contactos del Equipo" desde el dashboard.
+2. Visualiza la lista completa del equipo NeuroWeb.
+3. Utiliza herramientas de supervisión y coordinación.
+4. Accede a funciones administrativas avanzadas según permisos.
 
-El sistema está completamente funcional y listo para uso en producción! 🚀
+El sistema está completamente operativo y listo para ser utilizado en producción. ¡Facilita la comunicación y la gestión dentro de NeuroWeb! 🚀
